@@ -48,7 +48,7 @@ class CurrencyAnalizer:
 					min_dict[currency_name] = data_dict[date][currency_name]
 					date_minimum[currency_name] = date
 		for currency_name in min_dict.keys():
-			print(f' Курс {currency_name} достигал максимум {date_minimum[currency_name]} числа и составлял {min_dict[currency_name]} рублей')
+			print(f' Курс {currency_name} был минимальным {date_minimum[currency_name]} числа и составлял {min_dict[currency_name]} рублей')
 
 	def find_maximum(self):
 		max = 0
@@ -85,5 +85,7 @@ class CurrencyAnalizer:
 		
 
 
-test_object = CurrencyAnalizer(day_numbers=60)
+test_object = CurrencyAnalizer(day_numbers=3)
+test_object.find_minimum()
+test_object.find_maximum()
 test_object.find_average()
