@@ -47,7 +47,8 @@ class CurrencyAnalizer:
 				else:
 					min_dict[currency_name] = data_dict[date][currency_name]
 					date_minimum[currency_name] = date
-		return min_dict, date_minimum
+		for currency_name in min_dict.keys():
+			print(f' Курс {currency_name} достигал максимум {date_minimum[currency_name]} числа и составлял {min_dict[currency_name]} рублей')
 
 	def find_maximum(self):
 		max = 0
@@ -63,7 +64,8 @@ class CurrencyAnalizer:
 				else:
 					max_dict[currency_name] = data_dict[date][currency_name]
 					date_maximum[currency_name] = date
-		return max_dict, date_maximum
+		for currency_name in max_dict.keys():
+			print(f' Курс {currency_name} достигал максимум {date_maximum[currency_name]} числа и составлял {max_dict[currency_name]} рублей')
 
 	def find_average(self):
 		average_dict = {}
@@ -78,9 +80,10 @@ class CurrencyAnalizer:
 					average_dict[currency_name] = data_dict[date][currency_name]
 		for key in average_dict.keys():
 			average_dict[key] /= count
-		return average_dict
+		for currency_name in average_dict.keys():
+			print(f'Средний курс {currency_name} за {self.day_numbers} дней составляет {average_dict[currency_name]}')
 		
 
 
-test_object = CurrencyAnalizer(day_numbers=50)
-print(test_object.find_maximum())
+test_object = CurrencyAnalizer(day_numbers=60)
+test_object.find_average()
